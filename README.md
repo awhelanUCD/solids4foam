@@ -10,7 +10,7 @@ solids4foam is a toolbox for performing solid mechanics and fluid-solid interact
 
 ### What is this fork?
 
-This fork reprensents an extension of solids4foam to incorporate various to incorporate various damage and fracture mechancis models coupled with both linear (small-strain) elastic, elasto-plastic and non-linear (large strain) elasto-plastic models to characterise the deformation.
+This fork reprensents an extension of solids4foam to incorporate various damage and fracture mechancis models coupled with both linear (small-strain) elastic, elasto-plastic and non-linear (large strain) elasto-plastic models to characterise the deformation.
 
 ##  Material Models
 The following material models are given:
