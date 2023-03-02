@@ -1,0 +1,108 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/polyMesh";
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Model Description
+// Axisymmetric cylinder mesh with compression die
+
+// Setup m4 stuff
+
+
+
+// define geometry in mm
+
+ // half length of cylinder
+ // cylinder radius
+ // angle of wedge in degrees
+
+// calculated quantities
+
+
+
+
+// define mesh density
+ // number of cells in length direction (refined region)
+ // number of cells in length direction
+ // number of cells in radial direction
+ // x-coordinate where refined region ends
+
+// start of blockMeshDict
+
+convertToMeters  0.001;
+
+vertices
+(
+    //- dimension in mm
+    (0 0 0)//0
+    (1 0 0)//1
+    (1 1 0)//2
+    (0 1 0)//3
+
+    (0 0 1)//4
+    (1 0 1)//5
+    (1 1 1)//6
+    (0 1 1)//7
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) billet (1 1 1) simpleGrading (1 1 1)
+);
+
+edges
+(
+/*    arc 2 3 (2.5 2.004  0)*/
+/*    arc 6 7 (2.5 2.004 1.5)*/
+);
+
+patches
+(   
+    patch top
+    (
+        (3 7 6 2)
+    )
+
+   empty right 
+    (
+        (5 1 2 6)
+    )
+
+    patch bottom
+    (
+        (1 5 4 0)
+    )
+
+  empty back
+    (
+        (1 0 3 2)
+    )
+
+    empty front
+    (
+        (4 5 6 7)
+    )
+
+  empty left
+    (
+        (0 4 7 3) 
+    )
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //

@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.0                                |
+|   \\  /    A nd           | Web:         http://www.extend-project.de       |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      mechanicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+planeStress     no;
+
+mechanical
+(
+    steel
+    {
+        type linearGTN;
+        rho             rho [1 -3 0 0 0 0 0] 2700;
+        E               E [1 -1 -2 0 0 0 0] 210e9;
+        nu              nu [0 0 0 0 0 0 0] 0.3;
+
+        fileName        "$FOAM_CASE/constant/plasticStrainVsYieldStress";
+        outOfBounds     clamp;
+        solvePressureEqn no;
+        debug no;
+       
+        // Options to include coalescence and shear
+        includeCoalescence false;
+
+        // GTN parameters
+        q1            q1 [0 0 0 0 0 0 0] 1.5;
+        q2            q2 [0 0 0 0 0 0 0] 1;
+        q3            q3 [0 0 0 0 0 0 0] 2.25;
+        f0            f0 [0 0 0 0 0 0 0] 0.002;
+
+        sN            sN [0 0 0 0 0 0 0] 0.1;
+        fN            fN [0 0 0 0 0 0 0] 0.2;
+        epsilonN            epsilonN  [0 0 0 0 0 0 0] 0.3;
+
+        // Coalescence parameter
+        fC            fC [0 0 0 0 0 0 0] 0.15;
+        fU            fC [0 0 0 0 0 0 0] 0.6;
+        fF            fC [0 0 0 0 0 0 0] 0.25;
+        
+    }
+);
+
+// ************************************************************************* //
