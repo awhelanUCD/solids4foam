@@ -50,7 +50,7 @@ OPENFOAM® is a registered trademark of OpenCFD Limited, producer and distributo
 ## Example Results:
 - Accurate prediction of chevron-cracking (internal cracks) in the wire drawing process. Images shown are the computational simulation (270 degrees of the wire is shown here in order to display the internal cracking), a schematic and experimentally observed internal cracking:
 <p >
-  <img style="float: left;" src="docs/images/image23.gif" title="Computational simulation" width="40%" height="40%">
+  <img style="float: left;" src="docs/images/wireDrawing.gif" title="Computational simulation" width="40%" height="40%">
   &nbsp &nbsp &nbsp &nbsp &nbsp
   <img style="float: right;" src="docs/images/centralBurst.jpg" title="Schematic of chevron cracks occuring in wire drawing process" width="25%" height="25%">
    &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -60,7 +60,7 @@ OPENFOAM® is a registered trademark of OpenCFD Limited, producer and distributo
 
 - Necking and rapid crack propogation for a round bar undergoing a tensile test. The computational simulation (half of the specimen is modelled here due to symmetries), a schematic and experimentally observed necking and fracture are shown:
 <p >
-  <img style="float: left;" src="docs/images/wireDrawing.gif" title="Computational simulation" width="60%" height="60%"> 
+  <img style="float: left;" src="docs/images/neckingBar.gif" title="Computational simulation" width="60%" height="60%"> 
   
   <img style="float: right;" src="docs/images/roundTensile_schematic.PNG" title="Schematic of round bar tensile specimen" width="7%" height="7%">
    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
