@@ -70,6 +70,11 @@ $(linGeomLaws)/poroMechanicalLaw/poroMechanicalLaw.C
 $(linGeomLaws)/thermoMechanicalLaw/thermoMechanicalLaw.C
 $(linGeomLaws)/viscousHookeanElastic/viscousHookeanElastic.C
 
+$(linGeomLaws)/linearLemaitreDamage/linearLemaitreDamage.C
+$(linGeomLaws)/linearElasticPlasticPhaseFracture/linearElasticPlasticPhaseFracture.C
+$(linGeomLaws)/linearGTN/linearGTN.C
+$(linGeomLaws)/linearElasticPhaseOperatorSplit/linearElasticPhaseOperatorSplit.C
+
 nonLinGeomLaws = $(mechanicalLaws)/nonLinearGeometryLaws
 $(nonLinGeomLaws)/isotropicFungElastic/isotropicFungElastic.C
 $(nonLinGeomLaws)/GentElastic/GentElastic.C
@@ -81,6 +86,14 @@ $(nonLinGeomLaws)/StVenantKirchhoffElastic/StVenantKirchhoffElastic.C
 $(nonLinGeomLaws)/StVenantKirchhoffOrthotropicElastic/StVenantKirchhoffOrthotropicElastic.C
 $(nonLinGeomLaws)/viscoNeoHookeanElastic/viscoNeoHookeanElastic.C
 $(nonLinGeomLaws)/YeohElastic/YeohElastic.C
+
+$(nonLinGeomLaws)/logStrainLemaitreCrackClosure/logStrainLemaitreCrackClosure.C
+$(nonLinGeomLaws)/logStrainLemaitreDamage/logStrainLemaitreDamage.C
+$(nonLinGeomLaws)/logStrainPhaseFieldFracture/logStrainPhaseFieldFracture.C
+$(nonLinGeomLaws)/logStrainPhaseFieldFractureAdjusted/logStrainPhaseFieldFractureAdjusted.C
+$(nonLinGeomLaws)/GreenStrainLemaitreDamage/GreenStrainLemaitreDamage.C
+$(nonLinGeomLaws)/logStrainGTN/logStrainGTN.C
+$(nonLinGeomLaws)/logStrainLemaitreEffectiveNonLocal/logStrainLemaitreEffectiveNonLocal.C
 
 materialModels/thermalModel/thermalModel.C
 thermalLaws = materialModels/thermalModel/thermalLaws
