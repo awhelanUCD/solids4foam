@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:  3.0                                   |
+|   \\  /    A nd           | Web:         http://www.extend-project.de       |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       dictionary;
+    location    "constant";
+    object      mechanicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+planeStress     no;
+
+mechanical
+(
+    steel
+    {
+
+        type linearElasticPlasticPhaseFracture;
+
+        rho             rho [1 -3 0 0 0 0 0] 2700;
+        E               E [1 -1 -2 0 0 0 0]  68.8e9; 
+        nu              nu [0 0 0 0 0 0 0] 0.33;
+
+        monolithic true;
+        fileName        "$FOAM_CASE/constant/plasticStrainVsYieldStress";
+        outOfBounds     clamp;
+        solvePressureEqn no;
+        debug no;
+        smoothPressure false;
+
+        Gc            Gc [1 -1 -2 0 0 0 0] 138e6;
+
+        charLength charLength [0 1 0 0 0 0 0] 2;
+        //viscousD            viscousD [0 0 1 0 0 0 0] 0.0;
+        residualStiff            residualStiff [0 0 0 0 0 0 0] 1e-7;
+
+
+        w0            w0 [1 -1 -2 0 0 0 0] 1e7;
+
+
+
+    }
+);
+
+
+// ************************************************************************* //
