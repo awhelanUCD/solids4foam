@@ -32,10 +32,11 @@ mechanical
         pressureSmoothingScaleFactor 100;
 
         // Unused Lemaitre parameters
-        // Setting b to zero forces the rate of damege to zero
+        // Setting b to zero and epsilonD to a large value zero forces the rate
+        // of damege to zero
         s0           s0 [1 -1 -2 0 0 0 0] 1e99;
         b            b [0 0 0 0 0 0 0] 0;
-        epsilonD     epsilonD [0 0 0 0 0 0 0] 0;
+        epsilonD     epsilonD [0 0 0 0 0 0 0] 1e99;
 
         // Critical damage set as 0.99 by default if not set in dictionary
         //damageC damageC [0 0 0 0 0 0 0] 0.2; 
