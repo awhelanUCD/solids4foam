@@ -78,6 +78,14 @@ vertices
     (8.96575228281677 6.5 0.392200842415542)//16
     (8.96575228281677 20 0.392200842415542)//17
     (4.38704811073385 20 0.191908488041203)//18
+
+    // If total angle is 5 degrees, then half angle is 2.5
+    // So radius*cos(halfAngleInRadians) and radius*sin(halfAngleInRadians) are
+    // the X and Y coordinates
+    // X = 9*cos(2.5*pi/180) = 8.9914339942
+    // Y = 9*cos(2.5*pi/180) = 0.3925744863
+    // However, figures above are consistent with a 5 degree half angle for
+    // X but 2.5 degrees for Y
 );
 
 blocks

@@ -32,11 +32,14 @@ mechanical
         pressureSmoothingScaleFactor 100;
         debug no;
 
-        //lemaitreType Malcher; /* Option to use different Lemaitre based damage evolution law */
+        // Option to use different Lemaitre based damage evolution la
+        //lemaitreType Malcher;
 
-        s0            s0 [1 -1 -2 0 0 0 0] 1.1e6;//1.25e6;//3.5e6;// 
+        // Setting b to zero and epsilonD to a large value zero forces the rate
+        // of damage to zero
+        s0            s0 [1 -1 -2 0 0 0 0] 1e99;
         b            b [0 0 0 0 0 0 0] 0;
-        epsilonD epsilonD [0 0 0 0 0 0 0] 0;
+        epsilonD epsilonD [0 0 0 0 0 0 0] 1e99;
 
         //critical damage set as 0.99 by default if not set in dictionary
         //damageC damageC [0 0 0 0 0 0 0] 0.2; 
