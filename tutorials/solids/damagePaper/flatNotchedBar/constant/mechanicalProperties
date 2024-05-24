@@ -33,7 +33,7 @@ mechanical
 
         // Unused Lemaitre parameters
         // Setting b to zero and epsilonD to a large value zero forces the rate
-        // of damege to zero
+        // of damage to zero
         s0           s0 [1 -1 -2 0 0 0 0] 1e99;
         b            b [0 0 0 0 0 0 0] 0;
         epsilonD     epsilonD [0 0 0 0 0 0 0] 1e99;
