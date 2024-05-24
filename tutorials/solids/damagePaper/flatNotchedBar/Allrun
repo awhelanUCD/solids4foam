@@ -5,8 +5,12 @@
 
 # blockMeshDict.m4 is missing for this case?
 #m4 constant/polyMesh/blockMeshDictAxi.m4 > constant/polyMesh/blockMeshDict
+
+# Create the mesh
 runApplication blockMesh
+
+# Run the solver
 runApplication solids4FoamAW
 
-# ----------------------------------------------------------------- end-of-file
-
+# Generate plot
+gnuplot plot.gnuplot
