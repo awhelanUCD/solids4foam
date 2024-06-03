@@ -1,0 +1,57 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:  3.0                                   |
+|   \\  /    A nd           | Web:         http://www.extend-project.de       |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       dictionary;
+    location    "constant";
+    object      mechanicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+planeStress     no;
+
+mechanical
+(
+    steel
+    {
+
+        type logStrainLemaitreDamage;
+
+        //* Other Lemaitre based damage laws:
+        //- logStrainLemaitreEffectiveNonLocal
+        //- logStrainLemaitreCrackClosure
+        //- GreenStrainLemaitreDamage;
+
+
+        rho             rho [1 -3 0 0 0 0 0] 2700;
+        E               E [1 -1 -2 0 0 0 0] 68.8e9;//69e9;
+        nu              nu [0 0 0 0 0 0 0] 0.33;
+
+        fileName        "$FOAM_CASE/constant/plasticStrainVsYieldStress";
+        outOfBounds     clamp;
+        solvePressureEqn no;
+        debug no;
+
+        //lemaitreType Malcher; /* Option to use different Lemaitre based damage evolution law */
+
+        s0            s0 [1 -1 -2 0 0 0 0] 0.5e6;//1.25e6;//3.5e6;// 
+        b            b [0 0 0 0 0 0 0] 1;
+        epsilonD epsilonD [0 0 0 0 0 0 0] 100;
+
+        //critical damage set as 0.99 by default if not set in dictionary
+        //damageC damageC [0 0 0 0 0 0 0] 0.2; 
+
+        charLength     charLength [0 1 0 0 0 0 0] 6.325e-4;// set this as 0 for local damage model
+
+    }
+);
+
+
+// ************************************************************************* //
