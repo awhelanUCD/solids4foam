@@ -1,0 +1,75 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.0                                |
+|   \\  /    A nd           | Web:         http://www.extend-project.de       |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      DD;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 0 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    down
+    {
+        type            solidSymmetry;
+        patchType       symmetryPlane;
+        value           uniform (0 0 0);
+    }
+    left
+    {
+        type            solidSymmetry;
+        patchType       symmetryPlane;
+        value           uniform (0 0 0);
+    }
+    right
+    {
+        type            solidTraction;
+        traction        uniform ( 0 0 0 );
+        pressure        uniform 0;
+        value           uniform (0 0 0);
+    }
+    up
+    {
+        type            fixedDisplacement;
+        displacementSeries
+        {
+            "file|fileName"    "$FOAM_CASE/constant/timeVsDisp";
+            outOfBounds clamp;
+        }
+        pressure        uniform 0;
+        value           uniform (0 0 0);
+    }
+    notchedFace
+    {
+        type            solidTraction;
+        traction        uniform ( 0 0 0 );
+        pressure        uniform 0;
+        value           uniform (0 0 0);
+    }
+    front
+    {
+        type            solidTraction;
+        traction        uniform ( 0 0 0 );
+        pressure        uniform 0;
+        value           uniform (0 0 0);
+    }
+    back
+    {
+        type            solidSymmetry;
+        patchType       symmetryPlane;
+        value           uniform (0 0 0);
+    }
+}
+
+// ************************************************************************* //
