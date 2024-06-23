@@ -298,7 +298,7 @@ void Foam::logStrainLemaitreEffectiveNonLocal::damage
     const scalar& triaxiality,  //triaxiality value               
     scalar& damage,  //damage
     scalar& damageOld,  //old value of the damage
-    const scalar& damageNonLocal,  //non-local damage value
+    const scalar& effectiveDamageNonLocal,  //non-local damage value
     const scalar& sigmaEq, //equivalent stress         
     const symmTensor& tau  //stress tensor
 ) 
@@ -311,7 +311,7 @@ void Foam::logStrainLemaitreEffectiveNonLocal::damage
 
     scalar Ystar;
 
-    if ( triaxiality> (-1.0/3.0)&& epsilonPEq > epsilonD_.value() && damageNonLocal < damageC_)
+    if ( triaxiality> (-1.0/3.0)&& epsilonPEq > epsilonD_.value() && effectiveDamageNonLocal < damageC_)
     {
         //denominator for damage evolution equation
         scalar denom = (2.0/3.0)*(1.0 + nu_.value())+ 3.0*(1.0 - 2.0* nu_.value())*pow(triaxiality, 2.0);
@@ -321,9 +321,9 @@ void Foam::logStrainLemaitreEffectiveNonLocal::damage
         Ystar = pow(-Y/s0_.value(), b_.value())*DEpsilonPEq;
 
         //update damage field
-        damage = damageOld + Ystar/(1-damageNonLocal);
+        damage = damageOld + Ystar/(1-effectiveDamageNonLocal);
 
-        if (damage > damageC_){damage = 0.99;}
+       // if (damage > damageC_){damage = 0.99;}
     }
 
 
